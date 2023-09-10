@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.Extensions.DependencyInjection;
-using Sendeo.OnlineShop.Customer.Application.Common.Behaviours;
+using Sendeo.OnlineShop.Product.Application.Common.Behaviours;
 using System.Reflection;
 
-namespace Sendeo.OnlineShop.Customer.Application.Installers
+namespace Sendeo.OnlineShop.Product.Application.Installers
 {
 	public static class CqrsInstaller
 	{

@@ -16,3 +16,19 @@ create table public."User"
     "LastModifiedDate" timestamp
 );
 
+---
+
+create table public."Product"
+(
+    "Id"               integer generated always as identity,
+    "Code"             varchar(20)  not null,
+    "Name"             varchar(150) not null,
+    "CategoryId"       integer      not null,
+    "Description"      text,
+    "ImagePath"        varchar(100),
+    "CreatedDate"      timestamp,
+    "LastModifiedDate" timestamp
+);
+
+---
+
