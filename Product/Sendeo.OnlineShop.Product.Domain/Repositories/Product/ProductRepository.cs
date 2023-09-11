@@ -19,8 +19,6 @@ namespace Sendeo.OnlineShop.Product.Domain.Repositories.Product
 		{
 			Expression<Func<Persistence.PostgreSql.Domain.Product, bool>> predicate = x => true;
 
-			// TODO Category Enum
-
 			if (!string.IsNullOrEmpty(request.Name))
 				predicate = predicate.And(s => request.Name.Contains(s.Name));
 
@@ -53,20 +51,18 @@ namespace Sendeo.OnlineShop.Product.Domain.Repositories.Product
 			return query.FirstOrDefault();
 		}
 
-		public async Task<bool> CreateProductAsync(Persistence.PostgreSql.Domain.Product product)
+		public async Task<bool> CreateProductAsync(Persistence.PostgreSql.Domain.Product request)
 		{			
 			using var dbContext = _dbContextFactory.CreateDbContext();
-
-			// TODO Validation Up Level
-
-			await dbContext.Product.AddAsync(product);
+			
+			await dbContext.Product.AddAsync(request);
 
 			await dbContext.SaveChangesAsync();
 
 			return true;
 		}
 
-		public async Task<bool> UpdateProductAsync(Persistence.PostgreSql.Domain.Product product)
+		public async Task<bool> UpdateProductAsync(Persistence.PostgreSql.Domain.Product request)
 		{
 			using var dbContext = _dbContextFactory.CreateDbContext();
 
@@ -75,12 +71,11 @@ namespace Sendeo.OnlineShop.Product.Domain.Repositories.Product
 			return true;
 		}
 
-		public async Task<bool> DeleteProductAsync(Persistence.PostgreSql.Domain.Product product)
+		public async Task<bool> DeleteProductAsync(Persistence.PostgreSql.Domain.Product request)
 		{
-			// TODO: Validation up level
 			using var dbContext = _dbContextFactory.CreateDbContext();
 
-			dbContext.Product.Remove(product);
+			dbContext.Product.Remove(request);
 
 			await dbContext.SaveChangesAsync();
 

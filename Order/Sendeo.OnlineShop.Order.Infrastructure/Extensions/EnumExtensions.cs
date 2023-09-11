@@ -1,5 +1,6 @@
 ﻿using Sendeo.OnlineShop.Order.Infrastructure.Attributes;
 using System.ComponentModel;
+using Sendeo.OnlineShop.Order.Infrastructure.Exceptions;
 
 namespace Sendeo.OnlineShop.Order.Infrastructure.Extensions
 {
@@ -53,7 +54,7 @@ namespace Sendeo.OnlineShop.Order.Infrastructure.Extensions
 			var type = typeof(T);
 
 			if (!type.IsEnum)
-				throw new ArgumentException();
+				throw new BusinessException("Enum Extensions Type Error", ExceptionCodes.DefaultExceptionCode);
 			var fields = type.GetFields();
 			var field = fields
 				.SelectMany(f => f.GetCustomAttributes(

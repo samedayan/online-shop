@@ -15,7 +15,6 @@ namespace Sendeo.OnlineShop.Product.Infrastructure.Loggers
 			if (DefaultLogLevel <= logLevel)
 				await Console.Out.WriteLineAsync(JsonSerializer.Serialize(new
 				{
-					// TODO: CorrelationId
 					DateTime = DateTime.UtcNow,
 					LogLevel = logLevel.ToString(),
 					Message = message,
@@ -66,19 +65,17 @@ namespace Sendeo.OnlineShop.Product.Infrastructure.Loggers
 				httpStatusCode.GetValueOrDefault(), duration, hostName, url, origin);
 		}
 
-		public async Task LogError(string message, Exception exception, string responseBody,
-			string requestBody, HttpMethod httpMethod = null, HttpStatusCode? httpStatusCode = null, long? duration = null,
-			string hostName = null, string url = null, string origin = null)
+		public async Task LogError(string message, Exception? exception = null, string? responseBody = null,
+			string? requestBody = null, HttpMethod? httpMethod = null, HttpStatusCode? httpStatusCode = null, long? duration = null,
+			string? hostName = null, string? url = null, string? origin = null)
 		{
 			await Log(LogLevel.Error, message, exception, responseBody, requestBody, httpMethod,
 				httpStatusCode.GetValueOrDefault(), duration, hostName, url, origin);
 		}
 
-		public async Task LogCritical(string message, Exception exception, string responseBody,
-			string requestBody,
-			HttpMethod httpMethod, HttpStatusCode? httpStatusCode = null, long? duration = null,
-			string hostName = null,
-			string url = null, string origin = null)
+		public async Task LogCritical(string message, Exception? exception = null, string? responseBody = null,
+			string? requestBody = null, HttpMethod? httpMethod = null, HttpStatusCode? httpStatusCode = null, long? duration = null,
+			string hostName = null, string? url = null, string? origin = null)
 		{
 			await Log(LogLevel.Critical, message, exception, responseBody, requestBody, httpMethod,
 				httpStatusCode.GetValueOrDefault(), duration, hostName, url, origin);

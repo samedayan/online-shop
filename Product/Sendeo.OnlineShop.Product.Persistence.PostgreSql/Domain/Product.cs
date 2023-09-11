@@ -12,6 +12,5 @@ namespace Sendeo.OnlineShop.Product.Persistence.PostgreSql.Domain
 		public int CategoryId { get; set; }
 		public string Description { get; set; }
 		public string ImagePath { get; set; }
-		// TODO: Parse Price Stock
 	}
 }

@@ -46,8 +46,6 @@ void ConfigurationSettings(IConfigurationBuilder configurationBuilder)
 
 void RegisterServices(IServiceCollection serviceCollection, IConfiguration configurationRoot)
 {
-	serviceCollection.InstallSettings(configurationRoot);
-
 	serviceCollection.InstallLoggers(configurationRoot);
 
 	serviceCollection.AddHealthChecks();
@@ -55,9 +53,7 @@ void RegisterServices(IServiceCollection serviceCollection, IConfiguration confi
 	serviceCollection.InstallControllers();
 
 	serviceCollection.AddHostedService<ApplicationLifetimeService>();
-
-	serviceCollection.InstallMassTransit(configurationRoot);
-
+	
 	serviceCollection.InstallSwagger();
 
 	serviceCollection.InstallApplication(configurationRoot);

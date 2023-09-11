@@ -2,7 +2,7 @@
 
 namespace Sendeo.OnlineShop.Product.Contracts.Common.CommandQueryWrappers
 {
-	public interface IRequestWrapper<T> : IRequest<T>
+	public interface IRequestWrapper<out T> : IRequest<T>
 	{
 	}
 }
