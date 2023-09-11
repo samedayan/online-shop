@@ -1,0 +1,235 @@
+{
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:7001"
+  },
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/gateway/customer/get-users",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/customer/get-users",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7236
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/customer/get-user-by-id",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/customer/get-user-by-id/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7236
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/customer/create-user",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/customer/create-user",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7236
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/customer/update-user",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamPathTemplate": "/api/customer/update-user",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7236
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/customer/delete-user",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "DownstreamPathTemplate": "/api/customer/delete-user",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7236
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/order/get-orders",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Order/get-orders",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7237
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/order/get-order-by-id",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Order/get-user-by-id/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7237
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/order/create-order",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/Order/create-order",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7237
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/order/create-orders",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/Order/create-orders",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7237
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/order/update-order",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamPathTemplate": "/api/Order/update-order",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7237
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/order/update-orders",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamPathTemplate": "/api/Order/update-orders",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7237
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/order/delete-order",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "DownstreamPathTemplate": "/api/Order/delete-order",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7237
+        }
+      ]
+    }, 
+    {
+      "UpstreamPathTemplate": "/gateway/product/get-products",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Product/get-products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7238
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/product/get-product-by-id",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/api/Product/get-product-by-id/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7238
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/product/create-product",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/Product/create-product",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7238
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/product/create-products",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/api/Product/create-products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7238
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/product/update-product",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamPathTemplate": "/api/Product/update-product",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7238
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/product/update-products",
+      "UpstreamHttpMethod": [ "Put" ],
+      "DownstreamPathTemplate": "/api/Product/update-products",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7238
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/gateway/product/delete-product",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "DownstreamPathTemplate": "/api/Product/delete-product",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "host.docker.internal",
+          "Port": 7238
+        }
+      ]
+    }
+  ]
+}

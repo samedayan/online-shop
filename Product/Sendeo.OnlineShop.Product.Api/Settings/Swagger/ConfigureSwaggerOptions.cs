@@ -43,7 +43,7 @@ namespace Sendeo.OnlineShop.Product.Api.Settings.Swagger
 			{
 				Title = "API",
 				Version = description.ApiVersion.ToString(),
-				Description = "Sendeo Online Shop Customer Api",
+				Description = "Sendeo Online Shop Product Api",
 				Contact = new OpenApiContact { Name = "TeamSendeo", Email = "software@sendeo.com.tr" }
 			};
 

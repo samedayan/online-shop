@@ -9,9 +9,11 @@ using Sendeo.OnlineShop.Order.Api.Filters.ValidationModels;
 using Sendeo.OnlineShop.Order.Infrastructure.Loggers;
 using Swashbuckle.AspNetCore.Annotations;
 using System.Net.Mime;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Sendeo.OnlineShop.Product.Api.V0
 {
+	[Authorize]
     [ApiController]
 	[Produces(MediaTypeNames.Application.Json)]
 	[Route("api/v{version:apiVersion}/Order")]

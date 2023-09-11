@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Sendeo.OnlineShop.Product.Api.Filters.ValidationModels;
 using Sendeo.OnlineShop.Product.Contracts.Product.Commands;
@@ -12,6 +13,7 @@ using System.Net.Mime;
 
 namespace Sendeo.OnlineShop.Product.Api.V0
 {
+	[Authorize]
     [ApiController]
 	[Produces(MediaTypeNames.Application.Json)]
 	[Route("api/v{version:apiVersion}/Product")]

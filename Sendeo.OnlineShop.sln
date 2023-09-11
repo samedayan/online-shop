@@ -57,6 +57,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sendeo.OnlineShop.Order.Con
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateway", "ApiGateway", "{F8B6524C-6A2F-4E17-9972-E6F7F1B0BD91}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sendeo.OnlineShop.ApiGateway", "ApiGateway\Sendeo.OnlineShop.ApiGateway\Sendeo.OnlineShop.ApiGateway.csproj", "{A9E57E25-3249-4916-B8F8-1DD6D5BA3996}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -155,6 +157,10 @@ Global
 		{DB880BC9-FC47-4B41-AB37-D4E9C1F67236}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB880BC9-FC47-4B41-AB37-D4E9C1F67236}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DB880BC9-FC47-4B41-AB37-D4E9C1F67236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A9E57E25-3249-4916-B8F8-1DD6D5BA3996}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9E57E25-3249-4916-B8F8-1DD6D5BA3996}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9E57E25-3249-4916-B8F8-1DD6D5BA3996}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9E57E25-3249-4916-B8F8-1DD6D5BA3996}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -183,6 +189,7 @@ Global
 		{59B53ACC-93D5-4CF0-B2DC-50866CE1C389} = {C26DAA66-1DB8-443D-A52E-368DD1F49DEB}
 		{EBB9B75F-9CC3-430D-B47E-CFAD618F07DE} = {C26DAA66-1DB8-443D-A52E-368DD1F49DEB}
 		{DB880BC9-FC47-4B41-AB37-D4E9C1F67236} = {C26DAA66-1DB8-443D-A52E-368DD1F49DEB}
+		{A9E57E25-3249-4916-B8F8-1DD6D5BA3996} = {F8B6524C-6A2F-4E17-9972-E6F7F1B0BD91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E84B1F81-DA3C-4638-86AB-A9028E1F80A1}

@@ -68,7 +68,7 @@ void RegisterServices(IServiceCollection serviceCollection, IConfiguration confi
 
 	serviceCollection.AddTransient<RequestResponseLoggingMiddleware>();
 
-	// TODO: Basic Authentication
+	serviceCollection.AddAuthentication("BasicAuthentication").AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 }
 
 void ConfigureWebApplication(IApplicationBuilder applicationBuilder)
@@ -77,6 +77,8 @@ void ConfigureWebApplication(IApplicationBuilder applicationBuilder)
 
 	applicationBuilder.UseHttpsRedirection();
 	applicationBuilder.UseRouting();
+	applicationBuilder.UseAuthentication();
+	applicationBuilder.UseAuthorization();
 	applicationBuilder.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 	applicationBuilder.InstallHealthCheck();
 	applicationBuilder.UseGlobalExceptionHandler();
