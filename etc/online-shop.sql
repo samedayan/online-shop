@@ -1,8 +1,4 @@
 create database customers;
-create database orders;
-create database products;
-
----
 
 create table public."User"
 (
@@ -16,7 +12,9 @@ create table public."User"
     "LastModifiedDate" timestamp
 );
 
----
+--------------------------------------------------------------------
+
+create database orders;
 
 create table public."Product"
 (
@@ -30,7 +28,10 @@ create table public."Product"
     "LastModifiedDate" timestamp
 );
 
----
+
+--------------------------------------------------------------------
+
+create database products;
 
 create table if not exists public."Order"
 (
@@ -40,5 +41,5 @@ create table if not exists public."Order"
 	"Quantity"  integer not null
 );
 
----
+--------------------------------------------------------------------
 

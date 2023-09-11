@@ -33,6 +33,7 @@ bld/
 [Ll]ogs/
 pg_data/
 .idea/
+.sonarqube/
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
