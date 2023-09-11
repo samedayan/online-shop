@@ -12,7 +12,6 @@ namespace Sendeo.OnlineShop.Customer.Domain.Installers
 	{
 		public static void InstallSettings(this IServiceCollection serviceCollection, IConfiguration configuration)
 		{
-			serviceCollection.AddOptions<BusSettings>().ValidateOnStart();
 			serviceCollection.AddOptions<PostgresSettings>().ValidateOnStart();
 			serviceCollection.AddOptions<ClientSettings>().ValidateOnStart();
 
@@ -21,18 +20,12 @@ namespace Sendeo.OnlineShop.Customer.Domain.Installers
 			configuration.GetSection(nameof(PostgresSettings)).Bind(postgresSettings);
 			serviceCollection.AddSingleton(postgresSettings);
 
-			serviceCollection.Configure<BusSettings>(configuration.GetSection(nameof(BusSettings)));
-			var busSettings = configuration.Get<BusSettings>();
-			configuration.GetSection(nameof(BusSettings)).Bind(busSettings);
-			serviceCollection.AddSingleton(busSettings);
-
 			serviceCollection.Configure<ClientSettings>(configuration.GetSection(nameof(ClientSettings)));
 			var clientSettings = configuration.Get<ClientSettings>();
 			configuration.GetSection(nameof(ClientSettings)).Bind(clientSettings);
 			serviceCollection.AddSingleton(clientSettings);
 
 			serviceCollection.AddSingleton<IValidateOptions<PostgresSettings>, PostgresSettingsValidation>();
-			serviceCollection.AddSingleton<IValidateOptions<BusSettings>, MassTransitSettingsValidation>();
 			serviceCollection.AddSingleton<IValidateOptions<ClientSettings>, ClientSettingsValidation>();
 
 		}

@@ -57,44 +57,44 @@ namespace Sendeo.OnlineShop.Customer.Domain.Repositories.User
 			return query.FirstOrDefault();
 		}
 
-		public async Task<bool> CreateUserAsync(Persistence.PostgreSql.Domain.User user)
+		public async Task<bool> CreateUserAsync(Persistence.PostgreSql.Domain.User request)
 		{			
 			using var dbContext = _dbContextFactory.CreateDbContext();
 
-			if (!string.IsNullOrEmpty(user.Email) && dbContext.User.Any(s => s.Email == user.Email))
+			if (!string.IsNullOrEmpty(request.Email) && dbContext.User.Any(s => s.Email == request.Email))
 			{
 				throw new BusinessException("Registered Email Address!", ExceptionCodes.DefaultExceptionCode);
 			}
 
-			if (!string.IsNullOrEmpty(user.Phone) && dbContext.User.Any(s => s.Phone == user.Phone))
+			if (!string.IsNullOrEmpty(request.Phone) && dbContext.User.Any(s => s.Phone == request.Phone))
 			{
 				throw new BusinessException("Registered Phone Number!", ExceptionCodes.DefaultExceptionCode);
 			}
 
-			await dbContext.User.AddAsync(user);
+			await dbContext.User.AddAsync(request);
 
 			await dbContext.SaveChangesAsync();
 
 			return true;
 		}
 
-		public async Task<bool> UpdateUserAsync(Persistence.PostgreSql.Domain.User user)
+		public async Task<bool> UpdateUserAsync(Persistence.PostgreSql.Domain.User request)
 		{
 			using var dbContext = _dbContextFactory.CreateDbContext();
 
-			var model = await dbContext.User.FirstOrDefaultAsync(s => s.Id == user.Id);
+			var model = await dbContext.User.FirstOrDefaultAsync(s => s.Id == request.Id);
 
 			if (model is null)
 			{
 				throw new BusinessException("User Not Found!", ExceptionCodes.DefaultExceptionCode);
 			}
 
-			model.Address = user.Address;
-			model.Email = user.Email;
-			model.Phone = user.Phone;
-			model.Name = user.Name;
-			model.LastName = user.LastName;
-			model.AuditInformation.CreatedDate = user.AuditInformation.CreatedDate;
+			model.Address = request.Address;
+			model.Email = request.Email;
+			model.Phone = request.Phone;
+			model.Name = request.Name;
+			model.LastName = request.LastName;
+			model.AuditInformation.CreatedDate = request.AuditInformation.CreatedDate;
 			model.AuditInformation.LastModifiedDate = DateTime.Now.ToUniversalTime();
 
 			await dbContext.SaveChangesAsync();

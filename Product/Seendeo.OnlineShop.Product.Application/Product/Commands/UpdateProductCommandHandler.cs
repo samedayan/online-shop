@@ -18,12 +18,12 @@ namespace Sendeo.OnlineShop.Product.Application.Product.Commands
 			_consoleLogger = consoleLogger ?? throw new ArgumentNullException(nameof(consoleLogger));
 		}
 
-        public async Task<bool> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
+        public async Task<bool> Handle(UpdateProductCommand request, CancellationToken cancellationToken)
         {
 			var sendEndpoint = await _bus.GetSendEndpoint(new Uri($"queue:{QueueNames.UpdateProductHandlerQueueName}"));
 
-			await sendEndpoint.Send(command, cancellationToken);
-			await _consoleLogger.LogInformation($"Command Sent:{JsonSerializer.Serialize(command)}");
+			await sendEndpoint.Send(request, cancellationToken);
+			await _consoleLogger.LogInformation($"Command Sent:{JsonSerializer.Serialize(request)}");
 
 			return true;
 		}

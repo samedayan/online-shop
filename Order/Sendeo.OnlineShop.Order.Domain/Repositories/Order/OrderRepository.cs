@@ -59,18 +59,18 @@ namespace Sendeo.OnlineShop.Order.Domain.Repositories.Order
 			return query.FirstOrDefault();
 		}
 
-		public async Task<bool> CreateOrderAsync(Persistence.PostgreSql.Domain.Order product)
+		public async Task<bool> CreateOrderAsync(Persistence.PostgreSql.Domain.Order request)
 		{			
 			using var dbContext = _dbContextFactory.CreateDbContext();
 
-			await dbContext.Order.AddAsync(product);
+			await dbContext.Order.AddAsync(request);
 
 			await dbContext.SaveChangesAsync();
 
 			return true;
 		}
 
-		public async Task<bool> UpdateOrderAsync(Persistence.PostgreSql.Domain.Order product)
+		public async Task<bool> UpdateOrderAsync(Persistence.PostgreSql.Domain.Order request)
 		{
 			using var dbContext = _dbContextFactory.CreateDbContext();
 
@@ -79,11 +79,11 @@ namespace Sendeo.OnlineShop.Order.Domain.Repositories.Order
 			return true;
 		}
 
-		public async Task<bool> DeleteOrderAsync(Persistence.PostgreSql.Domain.Order product)
+		public async Task<bool> DeleteOrderAsync(Persistence.PostgreSql.Domain.Order request)
 		{
 			using var dbContext = _dbContextFactory.CreateDbContext();
 
-			dbContext.Order.Remove(product);
+			dbContext.Order.Remove(request);
 
 			await dbContext.SaveChangesAsync();
 

@@ -8,7 +8,6 @@ namespace Sendeo.OnlineShop.Customer.Domain.Installers
 		public static void InstallDomain(this IServiceCollection serviceCollection, IConfiguration configuration)
 		{
 			serviceCollection.InstallSettings(configuration);
-			serviceCollection.InstallMassTransit(configuration);
 			serviceCollection.InstallRepositories();
 			serviceCollection.InstallServices(configuration);
 		}
