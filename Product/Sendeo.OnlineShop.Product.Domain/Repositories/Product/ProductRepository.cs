@@ -1,15 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Sendeo.OnlineShop.Product.Contracts.Product.Commands;
 using Sendeo.OnlineShop.Product.Contracts.Product.Queries;
 using Sendeo.OnlineShop.Product.Domain.Extensions;
-using Sendeo.OnlineShop.Product.Domain.Repositories.Product;
-using Sendeo.OnlineShop.Product.Infrastructure.Exceptions;
 using Sendeo.OnlineShop.Product.Persistence.PostgreSql.DataAccess;
 using System.Linq.Expressions;
 
-namespace Sendeo.OnlineShop.Product.Domain.Repositories.User
+namespace Sendeo.OnlineShop.Product.Domain.Repositories.Product
 {
-    public class ProductRepository : IProductRepository
+	public class ProductRepository : IProductRepository
 	{
 		private readonly IDbContextFactory<ProductDatabaseContext> _dbContextFactory;
 

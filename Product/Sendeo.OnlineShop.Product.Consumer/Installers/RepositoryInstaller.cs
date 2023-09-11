@@ -3,7 +3,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Sendeo.OnlineShop.Product.Domain.Repositories.Product;
-using Sendeo.OnlineShop.Product.Domain.Repositories.User;
 using Sendeo.OnlineShop.Product.Domain.Settings.Postgres;
 using Sendeo.OnlineShop.Product.Persistence.PostgreSql.DataAccess;
 

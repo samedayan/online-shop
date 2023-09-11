@@ -22,6 +22,7 @@ namespace Sendeo.OnlineShop.Product.Consumer.Installers
 			serviceCollection.AddMassTransit(x =>
 			{
 				x.AddConsumer<CreateProductHandlerConsumer>();
+				x.AddConsumer<UpdateProductHandlerConsumer>();
 
 				// init bus
 				x.UsingRabbitMq((context, cfg) =>
@@ -52,6 +53,26 @@ namespace Sendeo.OnlineShop.Product.Consumer.Installers
 							.SetRestartTimeout(m: 1));
 
 						ep.ConfigureConsumer<CreateProductHandlerConsumer>(context);
+					});
+
+					cfg.ReceiveEndpoint(QueueNames.UpdateProductHandlerQueueName, ep =>
+					{
+						ep.AutoDelete = false;
+
+						ep.Durable = true;
+
+						ep.ExchangeType = ExchangeType.Fanout;
+
+						ep.UseMessageRetry(r => { r.Interval(3, TimeSpan.FromMilliseconds(1000)); });
+
+						ep.PrefetchCount = 10;
+
+						ep.UseKillSwitch(options => options
+							.SetActivationThreshold(10)
+							.SetTripThreshold(0.15)
+							.SetRestartTimeout(m: 1));
+
+						ep.ConfigureConsumer<UpdateProductHandlerConsumer>(context);
 					});
 				});
 			});

@@ -25,7 +25,6 @@ namespace Sendeo.OnlineShop.Product.Consumer.Services
 				PageSize = 10,
 				Code = command.Product.Code
 			});
-			var sea = new ProductViewModel();
 
 			if (product.totalCount > 0 || product.Item2.Any())
 			{
@@ -46,8 +45,22 @@ namespace Sendeo.OnlineShop.Product.Consumer.Services
 
 		public async Task<bool> UpdateProductAsync(UpdateProductCommand command)
 		{
+			var product = _repository.GetProductById(new GetProductByIdQuery { Id = command.Product.Id});
 
-			return true;
+			if (product is null)
+			{
+				throw new BusinessException("Product Not Found!.", ExceptionCodes.DefaultExceptionCode);
+			}
+
+			var model = command.Product.Adapt<Persistence.PostgreSql.Domain.Product>();
+
+			model.AuditInformation = new AuditInformation
+			{
+				CreatedDate = product.AuditInformation.CreatedDate,
+				LastModifiedDate = DateTime.Now.ToUniversalTime()
+			};
+
+			return await _repository.UpdateProductAsync(model);
 		}
 	}
 }
