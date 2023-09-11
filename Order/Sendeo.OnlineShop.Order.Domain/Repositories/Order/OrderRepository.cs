@@ -20,6 +20,16 @@ namespace Sendeo.OnlineShop.Order.Domain.Repositories.Order
 		{
 			Expression<Func<Persistence.PostgreSql.Domain.Order, bool>> predicate = x => true;
 
+			if (request.StartDate is not null)
+			{
+				predicate = predicate.And(s => s.AuditInformation.CreatedDate >= request.StartDate);
+			}
+			
+			if (request.EndDate is not null)
+			{
+				predicate = predicate.And(s => s.AuditInformation.CreatedDate <= request.EndDate);
+			}
+			
 			using var dbContext = _dbContextFactory.CreateDbContext();
 
 			var query = dbContext.Order				

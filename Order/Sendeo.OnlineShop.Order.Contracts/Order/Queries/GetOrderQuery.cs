@@ -9,5 +9,7 @@ namespace Sendeo.OnlineShop.Order.Contracts.Order.Queries
         public int? PageSize { get; set; }
         public int? CustomerId { get; set; }
         public int? ProductId { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }
