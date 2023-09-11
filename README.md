@@ -1,6 +1,6 @@
 # OnlineShop
 
-# How To Installer
+# How to Installer
 
 - Steps
     * ``` git clone  https://github.com/samedayan/online-shop.git ```
@@ -79,3 +79,5 @@
 ## Services
 
 [![image](https://www.linkpicture.com/q/OnlineShop.drawio.png)](https://www.linkpicture.com/view.php?img=LPic64ff07a144f7e1719641086)
+
+[![image](https://www.linkpicture.com/q/Screenshot-2023-09-11-232429_1.png)](https://www.linkpicture.com/view.php?img=LPic64ff78c3e0054465738220)
