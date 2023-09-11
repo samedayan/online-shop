@@ -32,3 +32,13 @@ create table public."Product"
 
 ---
 
+create table if not exists public."Order"
+(
+    "Id"         integer generated always as identity,
+    "CustomerId" integer not null,
+    "ProductId"  integer not null,
+	"Quantity"  integer not null
+);
+
+---
+

@@ -1,9 +1,8 @@
-﻿using Sendeo.OnlineShop.Product.Contracts.Product.Commands;
-using Sendeo.OnlineShop.Product.Contracts.Product.Queries;
+﻿using Sendeo.OnlineShop.Product.Contracts.Product.Queries;
 
 namespace Sendeo.OnlineShop.Product.Domain.Repositories.Product
 {
-    public interface IProductRepository
+	public interface IProductRepository
 	{
 		(int totalCount, IReadOnlyCollection<Persistence.PostgreSql.Domain.Product>) GetProducts(GetProductQuery request);
 		Persistence.PostgreSql.Domain.Product? GetProductById(GetProductByIdQuery request);
