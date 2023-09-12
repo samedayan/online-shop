@@ -14,6 +14,7 @@ namespace Sendeo.OnlineShop.Customer.Persistence.PostgreSql.DataAccess
 		/// <param name="options"></param>
 		public CustomerDatabaseContext(DbContextOptions<CustomerDatabaseContext> options) : base(options)
 		{
+			AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 		}
 
 		public DbSet<User> User { get; set; }

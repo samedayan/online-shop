@@ -1,4 +1,5 @@
 ﻿using Sendeo.OnlineShop.Order.Infrastructure.ValueObjects;
+using Sendeo.OnlineShop.Order.Persistence.PostgreSql.Domain;
 
 namespace Sendeo.OnlineShop.Order.UnitTests.Mothers
 {
@@ -13,10 +14,7 @@ namespace Sendeo.OnlineShop.Order.UnitTests.Mothers
 				{
 					CreatedDate = DateTime.Now.ToUniversalTime(),
 					LastModifiedDate = DateTime.Now.ToUniversalTime(),
-				},
-				ProductId = 1,
-				CustomerId = 2,
-				Quantity = 3,
+				}
 			};
 		}
 	}

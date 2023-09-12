@@ -13,6 +13,7 @@ namespace Sendeo.OnlineShop.Product.Persistence.PostgreSql.DataAccess
 		/// <param name="options"></param>
 		public ProductDatabaseContext(DbContextOptions<ProductDatabaseContext> options) : base(options)
 		{
+			AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 		}
 
 		public DbSet<Domain.Product> Product { get; set; }
@@ -34,7 +35,7 @@ namespace Sendeo.OnlineShop.Product.Persistence.PostgreSql.DataAccess
 		/// <param name="modelBuilder"></param>
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
-			modelBuilder.HasDefaultSchema(SchemaNames.CustomerDatabaseContextSchemaName);
+			modelBuilder.HasDefaultSchema(SchemaNames.ProductDatabaseContextSchemaName);
 			modelBuilder.Entity<Domain.Product>().ToTable("Product").HasKey(t => t.Id);
 			modelBuilder.Entity<Domain.Product>().Property(t => t.Id).HasColumnName("Id");
 			modelBuilder.Entity<Domain.Product>().Property(t => t.Code).HasColumnName("Code");

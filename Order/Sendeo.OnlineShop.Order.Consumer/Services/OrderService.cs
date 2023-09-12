@@ -4,6 +4,7 @@ using Sendeo.OnlineShop.Order.Contracts.Order.Queries;
 using Sendeo.OnlineShop.Order.Domain.Repositories.Order;
 using Sendeo.OnlineShop.Order.Infrastructure.Exceptions;
 using Sendeo.OnlineShop.Order.Infrastructure.ValueObjects;
+using Sendeo.OnlineShop.Order.Persistence.PostgreSql.Domain;
 
 namespace Sendeo.OnlineShop.Order.Consumer.Services
 {
@@ -18,34 +19,23 @@ namespace Sendeo.OnlineShop.Order.Consumer.Services
 
 		public async Task<bool> CreateOrderAsync(CreateOrderCommand command)
 		{
-			var model = command.Order.Adapt<Persistence.PostgreSql.Domain.Order>();
-
-			model.AuditInformation = new AuditInformation
+			var order = command.Order.Adapt<Persistence.PostgreSql.Domain.Order>();
+				
+			order.AuditInformation = new AuditInformation
 			{
 				CreatedDate = DateTime.Now.ToUniversalTime(),
 			};
-
-			return await _repository.CreateOrderAsync(model);
+			
+			return await _repository.CreateOrderAsync(order);
 		}
 
 		public async Task<bool> UpdateOrderAsync(UpdateOrderCommand command)
 		{
-			var order = _repository.GetOrderById(new GetOrderByIdQuery { Id = command.Order.Id });
-
-			if (order is null)
-			{
-				throw new BusinessException("Order Not Found!.", ExceptionCodes.DefaultExceptionCode);
-			}
-
 			var model = command.Order.Adapt<Persistence.PostgreSql.Domain.Order>();
 
-			model.AuditInformation = new AuditInformation
-			{
-				CreatedDate = order.AuditInformation.CreatedDate,
-				LastModifiedDate = DateTime.Now.ToUniversalTime()
-			};
+			await _repository.UpdateOrderAsync(model);
 
-			return await _repository.UpdateOrderAsync(model);
+			return true;
 		}
 	}
 }
