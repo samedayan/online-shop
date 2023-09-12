@@ -2,6 +2,6 @@
 {
 	public class SchemaNames
 	{
-		public const string CustomerDatabaseContextSchemaName = "public";
+		public const string ProductDatabaseContextSchemaName = "public";
 	}
 }

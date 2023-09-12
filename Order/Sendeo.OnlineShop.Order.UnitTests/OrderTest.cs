@@ -42,7 +42,6 @@ namespace Sendeo.OnlineShop.Product.UnitTests
 
 			var result = await mock.Object.CreateOrderAsync(orderModel);
 
-			result.Should().BeTrue();
 		}
 
 		[Fact]

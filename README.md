@@ -46,7 +46,7 @@
 |                |`CreatedDate                  `|DateTime                     |
 |                |`LastModifiedDate             `|DateTime?                    |
 
-|ProductPrice    |                              |                             |
+|ProductPrice    |                               |                             |
 |----------------|-------------------------------|-----------------------------|
 | PK             |`Id               `            |int                          |
 |                |`ProductId        `            |int                          |
@@ -56,7 +56,7 @@
 |                |`CreatedDate                  `|DateTime                     |
 |                |`LastModifiedDate             `|DateTime?                    |
 
-|ProductStock    |                              |                             |
+|ProductStock    |                               |                             |
 |----------------|-------------------------------|-----------------------------|
 | PK             |`Id               `            |int                          |
 |                |`ProductId        `            |int                          |
@@ -71,8 +71,18 @@
 |----------------|-------------------------------|-----------------------------|
 | PK             |`Id               `            |int                          |
 |                |`CustomerId       `            |int                          |
+|                |`StatusId                     `|int                          |
+|                |`Description                  `|string                       |
+|                |`CreatedDate                  `|DateTime                     |
+|                |`LastModifiedDate             `|DateTime?                    |
+
+|OrderProduct    |                               |                             |
+|----------------|-------------------------------|-----------------------------|
+| PK             |`Id               `            |int                          |
+|                |`OrderId          `            |int                          |
 |                |`ProductId                    `|int                          |
 |                |`Quantity                     `|int                          |
+|                |`Description                  `|string                       |
 |                |`CreatedDate                  `|DateTime                     |
 |                |`LastModifiedDate             `|DateTime?                    |
 

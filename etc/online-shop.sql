@@ -16,6 +16,30 @@ create table public."User"
 
 create database orders;
 
+create table if not exists public."Order"
+(
+    "Id"         integer generated always as identity,
+    "CustomerId" integer not null,
+	"StatusId" integer not null,
+	"Description"      text,
+	"CreatedDate"      timestamp   not null,
+    "LastModifiedDate" timestamp
+);
+
+create table if not exists public."OrderProduct"
+(
+    "Id"         integer generated always as identity,
+	"OrderId"  integer not null,
+    "ProductId"  integer not null,
+	"Quantity"  integer not null,
+	"Description"      text,
+	"CreatedDate"      timestamp   not null,
+    "LastModifiedDate" timestamp
+);
+--------------------------------------------------------------------
+
+create database products;
+
 create table public."Product"
 (
     "Id"               integer generated always as identity,
@@ -26,19 +50,6 @@ create table public."Product"
     "ImagePath"        varchar(100),
     "CreatedDate"      timestamp,
     "LastModifiedDate" timestamp
-);
-
-
---------------------------------------------------------------------
-
-create database products;
-
-create table if not exists public."Order"
-(
-    "Id"         integer generated always as identity,
-    "CustomerId" integer not null,
-    "ProductId"  integer not null,
-	"Quantity"  integer not null
 );
 
 --------------------------------------------------------------------

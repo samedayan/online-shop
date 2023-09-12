@@ -9,5 +9,10 @@ namespace Sendeo.OnlineShop.Order.Domain.Repositories.Order
 		Task<bool> CreateOrderAsync(Persistence.PostgreSql.Domain.Order request);
 		Task<bool> UpdateOrderAsync(Persistence.PostgreSql.Domain.Order request);
 		Task<bool> DeleteOrderAsync(Persistence.PostgreSql.Domain.Order order);
+		Persistence.PostgreSql.Domain.OrderProduct? GetOrderProductById(int id);
+		Task<bool> CreateOrderProductAsync(Persistence.PostgreSql.Domain.OrderProduct request);
+		Task<bool> UpdateOrderProductAsync(Persistence.PostgreSql.Domain.OrderProduct request);
+
+
 	}
 }
